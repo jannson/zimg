@@ -24,6 +24,7 @@ SET(MAGICK_FOUND        "NO" )
 SET(MAGICK++_FOUND      "NO" )
 SET(MAGICKWAND_FOUND    "NO" )
  
+error
 FIND_PATH( MAGICK_INCLUDE_DIR
   NAMES "magick/magick.h"
   PATHS
@@ -32,10 +33,10 @@ FIND_PATH( MAGICK_INCLUDE_DIR
   "$ENV{MAGICK_LOCATION}/include"
   "$ENV{MAGICK_LOCATION}/include/GraphicsMagick"
   "$ENV{MAGICK_HOME}/include"
-  /usr/include/
-  /usr/include/GraphicsMagick
   /usr/local/include
   /usr/local/include/GraphicsMagick
+  /usr/include/
+  /usr/include/GraphicsMagick
   /opt/local/include/GraphicsMagick
   )
  
@@ -49,10 +50,10 @@ FIND_PATH( MAGICK++_INCLUDE_DIR
   "$ENV{MAGICK_LOCATION}/include"
   "$ENV{MAGICK_LOCATION}/include/GraphicsMagick"
   "$ENV{MAGICK_HOME}/include"
-  /usr/include/
-  /usr/include/GraphicsMagick
   /usr/local/include
   /usr/local/include/GraphicsMagick
+  /usr/include/
+  /usr/include/GraphicsMagick
   /opt/local/include/GraphicsMagick
   )
   
@@ -66,10 +67,10 @@ FIND_PATH( MAGICKWAND_INCLUDE_DIR
   "$ENV{MAGICK_LOCATION}/include"
   "$ENV{MAGICK_LOCATION}/include/GraphicsMagick"
   "$ENV{MAGICK_HOME}/include"
-  /usr/include/
-  /usr/include/GraphicsMagick
   /usr/local/include
   /usr/local/include/GraphicsMagick
+  /usr/include/
+  /usr/include/GraphicsMagick
   /opt/local/include/GraphicsMagick
   )
 
@@ -80,11 +81,8 @@ FIND_LIBRARY( Magick
   "$ENV{MAGICK_LOCATION}/magick/.libs"
   "$ENV{MAGICK_LOCATION}/lib"
   "$ENV{MAGICK_HOME}/lib"
-  /usr/lib64
-  /usr/local/lib64
-  /opt/local/lib64
-  /usr/lib
   /usr/local/lib
+  /usr/lib
   /opt/local/lib
   DOC   "GraphicsMagick magic library"
   )
@@ -98,12 +96,9 @@ FIND_LIBRARY( Magick++
   "$ENV{MAGICK++_LOCATION}/lib"
   "$ENV{MAGICK_LOCATION}/lib"
   "$ENV{MAGICK_HOME}/lib"
-  /opt/local/lib64
-  /usr/lib64
-  /usr/local/lib64
+  /usr/local/lib
   /opt/local/lib
   /usr/lib
-  /usr/local/lib
   DOC   "GraphicsMagick Magick++ library"
   )
   
@@ -116,12 +111,9 @@ FIND_LIBRARY( MagickWand
   "$ENV{MAGICKWAND_LOCATION}/lib"
   "$ENV{MAGICK_LOCATION}/lib"
   "$ENV{MAGICK_HOME}/lib"
-  /opt/local/lib64
-  /usr/lib64
-  /usr/local/lib64
+  /usr/local/lib
   /opt/local/lib
   /usr/lib
-  /usr/local/lib
   DOC   "GraphicsMagick MagickWand library"
   )
  

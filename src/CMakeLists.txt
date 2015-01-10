@@ -67,8 +67,8 @@ find_package (LibMemcached REQUIRED)
 #find_package (GIF REQUIRED)
 #find_package (PNG REQUIRED)
 #find_package (GraphicsMagick REQUIRED)
-find_package (ImageMagick COMPONENTS MagickCore REQUIRED)
-find_package (ImageMagick COMPONENTS MagickWand REQUIRED)
+#find_package (ImageMagick COMPONENTS MagickCore REQUIRED)
+#find_package (ImageMagick COMPONENTS MagickWand REQUIRED)
 
 if (NOT OPENSSL_FOUND)
 	message ("Diabling SSL")
@@ -85,9 +85,9 @@ include_directories(${DEPS_SOURCE_DIR})
 set (LUAJIT_INCLUDE_DIR ${DEPS_SOURCE_DIR}/LuaJIT-2.0.3/src)
 set (LUAJIT_LIBRARIES ${DEPS_SOURCE_DIR}/LuaJIT-2.0.3/src/libluajit.a)
 
-#set (ImageMagick_INCLUDE_DIRS "/Users/zippo/develop/linuxc/imagemagick-src")
-#set (ImageMagick_MagickCore_LIBRARY "/Users/zippo/develop/linuxc/imagemagick-src/magick/.libs/libMagickCore-Q16.a")
-#set (ImageMagick_MagickWand_LIBRARY "/Users/zippo/develop/linuxc/imagemagick-src/wand/.libs/libMagickWand-Q16.a")
+set (ImageMagick_INCLUDE_DIRS "/usr/local/include/ImageMagick-6")
+set (ImageMagick_MagickCore_LIBRARY "/usr/local/lib/libMagickCore-6.Q16.so")
+set (ImageMagick_MagickWand_LIBRARY "/usr/local/lib/libMagickWand-6.Q16.so")
 
 include_directories(
 	${OPENSSL_INCLUDE_DIR}
@@ -149,7 +149,7 @@ set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -Wno-unused-function -Wno-deprecat
 message("Build Type: ${CMAKE_BUILD_TYPE}")
 message("Std CFLAGS: ${CMAKE_C_FLAGS}")
 
-link_directories("/usr/lib" "/usr/local/lib")
+link_directories("/usr/local/lib" "/usr/lib")
 add_executable(zimg ${SOURCES})
 target_link_libraries(zimg ${ZIMG_EXTERNAL_LIBS})
 

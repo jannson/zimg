@@ -2,7 +2,7 @@
 
 --server config
 --是否后台运行
-is_daemon       = 1
+is_daemon       = 0
 --绑定IP
 ip              = '0.0.0.0'
 --端口
@@ -52,7 +52,7 @@ LOG_INFO 6      Information
 LOG_DEBUG 7     DEBUG message
 ]]
 --输出log级别
-log_level       = 6
+log_level       = 7
 --输出log路径
 log_name        = pwd .. '/log/zimg.log'
 
