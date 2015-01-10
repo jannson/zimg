@@ -1014,6 +1014,7 @@ void get_request_cb(evhtp_request_t *req, void *arg)
             quality = (str_q) ? atoi(str_q) : 0;
 
             const char *str_f = evhtp_kv_find(params, "f");
+
             if(str_f)
             {
                 size_t fmt_len = strlen(str_f) + 1;
@@ -1040,6 +1041,20 @@ void get_request_cb(evhtp_request_t *req, void *arg)
     else
     {
         sv = 1;
+    }
+
+    if(!fmt)
+    {
+        char* webp = "webp";
+        const char *accept = evhtp_header_find(req->headers_in, "Accept");
+        if(NULL != strstr(accept, webp))
+        {
+            size_t fmt_len = strlen(webp) + 1;
+            fmt = (char *)malloc(fmt_len);
+            if(fmt != NULL)
+                str_lcpy(fmt, webp, fmt_len);
+            LOG_PRINT(LOG_DEBUG, "fmt = %s", fmt);
+        }
     }
 
     quality = (quality != 0 ? quality : settings.quality);
